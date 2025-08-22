@@ -1,6 +1,105 @@
-<html>
-  <body>
-    <h1>Abakar Junior</h1>
-    <p>Bienvenue sur mon portfolio !</p>
-  </body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Futuristic Theme</title>
+  <style>
+    /* --- Reset & Base --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      font-family: 'Roboto', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* --- Background Animation --- */
+    @keyframes starfield {
+      from { background-position: 0 0; }
+      to { background-position: -10000px 5000px; }
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://i.imgur.com/QbMNy3P.png') repeat;
+      animation: starfield 120s linear infinite;
+      z-index: -1;
+      opacity: 0.7;
+    }
+
+    /* --- Container & Layout --- */
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100%;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 3rem;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      line-height: 1.6;
+      color: #cccccc;
+    }
+    .btn-neon {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      color: #0a0a0a;
+      background: #00ffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      position: relative;
+      transition: 0.3s;
+    }
+    .btn-neon::before, .btn-neon::after {
+      content: '';
+      position: absolute;
+      top: -2px; left: -2px; right: -2px; bottom: -2px;
+      background: linear-gradient(45deg, #00ffff, #ff00ff, #00ffff, #ff00ff);
+      background-size: 400%;
+      z-index: -1;
+      filter: blur(5px);
+      opacity: 0;
+      transition: opacity 0.3s;
+      border-radius: 50px;
+      animation: neonGlow 5s linear infinite;
+    }
+    .btn-neon:hover::before, .btn-neon:hover::after {
+      opacity: 1;
+    }
+    @keyframes neonGlow {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bienvenue dans le Futur</h1>
+    <p>
+      Découvrez un design inspiré des interfaces de science-fiction, avec des effets de
+      néon et une ambiance cosmique. Cette page est un point de départ pour vos projets
+      futuristes et interactifs.
+    </p>
+    <button class="btn-neon">Explorer</button>
+  </div>
+</body>
 </html>
